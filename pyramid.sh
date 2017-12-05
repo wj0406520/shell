@@ -2,7 +2,8 @@
 NUMBER=${1}
 
 #字符串和0相加依然等于0
-let n=${1}+0
+#类似"1aa"这样的字符串let会报错，所以我把错误给屏蔽了
+let n=${1}+0 2>/dev/null
 if [[ ${n} -eq 0 ]]
 then
   echo -base: ${1} is not number or 0
